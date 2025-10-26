@@ -3,24 +3,6 @@ import pickle
 import pandas as pd
 import requests
 
-# URLs for your pickle files
-movies_url = "https://drive.google.com/file/d/1v216uBJrsaQIYRN1S2lWEq2m5mlXPRqk/view?usp=sharing"
-similarity_url = "https://drive.google.com/file/d/1sYb6BpvZz7_brWjk2K547VjM3CY7QUxg/view?usp=sharing"
-
-# Download movies_dict.pkl
-response = requests.get(movies_url)
-with open("movies_dict.pkl", "wb") as f:
-    f.write(response.content)
-
-# Download similarity.pkl
-response = requests.get(similarity_url)
-with open("similarity.pkl", "wb") as f:
-    f.write(response.content)
-
-# Load files
-movies = pd.DataFrame(pickle.load(open("movies_dict.pkl", "rb")))
-similarity = pickle.load(open("similarity.pkl", "rb"))
-
 
 # ------------------ Fetch Poster Function ------------------
 def fetch_poster(movie_id):
